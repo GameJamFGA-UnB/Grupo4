@@ -29,6 +29,9 @@ public class Player : Singleton<Player>
     // Update is called once per frame
     void Update()
     {
+        if(Manager.Instance.pause)
+            return;
+
         if(isDead)
             return;
 
