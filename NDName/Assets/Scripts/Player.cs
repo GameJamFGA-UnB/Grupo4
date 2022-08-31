@@ -7,11 +7,11 @@ public class Player : Singleton<Player>
     private Rigidbody2D _rigid;
     private BoxCollider2D _boxCollider;
     [SerializeField]
-    private float _jumpForce = 5.0f;
+    private float _jumpForce = 50f;
     private bool _resetJump = false;
     private bool _grounded = false;
     [SerializeField]
-    private float _speed = 2.5f;
+    private float _speed = 15f;
     private bool isDead = false;
     // private PlayerAnimation _playerAnim;
     public int Health { get; set; }
@@ -61,13 +61,11 @@ public class Player : Singleton<Player>
 
     void isGrounded()
     {
+        int layerMask = (1 << 7) | (1 << 8);
         RaycastHit2D hitInfo = Physics2D.BoxCast(
             _boxCollider.bounds.center,
             _boxCollider.bounds.size,
-            0f,
-            Vector2.down,
-            .1f,
-            1 << 8
+            0f, Vector2.down, .1f, layerMask
         );
         if (hitInfo.collider != null){
             if(!_resetJump){
@@ -85,5 +83,9 @@ public class Player : Singleton<Player>
         _resetJump = true;
         yield return new WaitForSeconds(0.1f);
         _resetJump = false;
+    }
+
+    public void UpdateSpeed(int value){
+        _speed += value;
     }
 }
