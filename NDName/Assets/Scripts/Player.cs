@@ -13,7 +13,7 @@ public class Player : Singleton<Player>
     [SerializeField]
     private float _speed = 15f;
     private bool isDead = false;
-    // private PlayerAnimation _playerAnim;
+    public Animator _playerAnim { get; private set; }
     public int Health { get; set; }
     public bool isMoving { get; private set;}
 
@@ -22,7 +22,7 @@ public class Player : Singleton<Player>
     {
         _rigid = GetComponent<Rigidbody2D>();
         _boxCollider = GetComponent<BoxCollider2D>();
-        // _playerAnim = GetComponent<PlayerAnimation>();
+        _playerAnim = GetComponentInChildren<Animator>();
         Health = 4;
     }
 
@@ -40,26 +40,19 @@ public class Player : Singleton<Player>
 
     void Movement()
     {
-        bool move =  Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
+        isMoving =  Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
         isGrounded();
 
-        if(move){
-            Debug.Log("Moving");
-            isMoving = true;
-        } else{
-            isMoving = false;
-        }
-
-        bool jump = Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+        bool jump = Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
         if (jump && _grounded){
             Debug.Log("Jumping");
             _rigid.velocity = new Vector2(_rigid.velocity.x, _jumpForce);
             StartCoroutine(ResetJumpRoutine());
-            // _playerAnim.Jump(true);
+            _playerAnim.SetBool("Jumping", true);
         }
 
-        _rigid.velocity = new Vector2((move? 1 : 0) * _speed, _rigid.velocity.y);
-        // _playerAnim.Move(move);
+        _rigid.velocity = new Vector2((isMoving? 1 : 0) * _speed, _rigid.velocity.y);
+        _playerAnim.SetBool("Walking", isMoving);
     }
 
     void isGrounded()
@@ -72,7 +65,7 @@ public class Player : Singleton<Player>
         );
         if (hitInfo.collider != null){
             if(!_resetJump){
-                // _playerAnim.Jump(false);
+                _playerAnim.SetBool("Jumping", false);
                 _grounded = true;
                 return;
             }
