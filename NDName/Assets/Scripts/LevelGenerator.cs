@@ -5,12 +5,50 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
 
-    [SerializeField] private Transform Level1;
+    private const float playerDistance = 200f;
+
+    [SerializeField] private Transform initialLevel;
+    [SerializeField] private Transform level1;
+    [SerializeField] private Transform player;
+
+
+    private Vector3 lastEndPosition;
 
    private void Awake()
    {
 
-    Instantiate (Level1, new Vector3 (2,0,75), Quaternion.identity);
+        lastEndPosition = initialLevel.Find("endPosition").position;
+
+        for (int i = 0; i< 5; i++){ //quantidade de partes iniciais
+            SpawnLevelPart();
+        }
 
    }    
+
+   private void Update(){
+
+        if (Vector3.Distance(player.transform.position, lastEndPosition) < playerDistance)
+        {
+
+            SpawnLevelPart();
+
+        }
+
+
+
+   }
+
+   private void SpawnLevelPart(){
+
+        Transform lastLevelPartTransform = SpawnLevelPart(lastEndPosition);
+        lastEndPosition = lastLevelPartTransform.Find("endPosition").position;
+
+   }
+
+   private Transform SpawnLevelPart(Vector3 spawnPosition){  
+
+        Transform levelPartTransform = Instantiate(level1, spawnPosition, Quaternion.identity);
+        return levelPartTransform;
+
+   }
 }
