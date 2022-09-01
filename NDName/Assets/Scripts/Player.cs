@@ -12,7 +12,8 @@ public class Player : Singleton<Player>
     private bool _grounded = false;
     [SerializeField]
     private float _speed = 15f;
-    public bool isDead = false;
+    private bool isDead = false;
+    private bool isWinner = false;
     public Animator _playerAnim { get; private set; }
     public bool isMoving { get; private set;}
 
@@ -27,9 +28,14 @@ public class Player : Singleton<Player>
     // Update is called once per frame
     void Update()
     {
-        if(isDead){
+        if(!Manager.Instance.started)
             return;
-        }
+
+        if(isDead || isWinner)
+            return;
+
+        if(transform.position.y < 0)
+            Die();
 
         Movement();
     }
@@ -89,5 +95,12 @@ public class Player : Singleton<Player>
             isDead = true;
             _rigid.velocity = new Vector2(0, _rigid.velocity.y);
         }
+    }
+
+    public void Win(){
+        Debug.Log("Win");
+        isWinner = true;
+        isMoving = false;
+        _rigid.velocity = new Vector2(0, _rigid.velocity.y);
     }
 }
