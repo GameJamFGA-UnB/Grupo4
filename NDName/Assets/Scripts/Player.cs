@@ -12,9 +12,8 @@ public class Player : Singleton<Player>
     private bool _grounded = false;
     [SerializeField]
     private float _speed = 15f;
-    private bool isDead = false;
+    public bool isDead = false;
     public Animator _playerAnim { get; private set; }
-    public int Health { get; set; }
     public bool isMoving { get; private set;}
 
     // Start is called before the first frame update
@@ -23,17 +22,14 @@ public class Player : Singleton<Player>
         _rigid = GetComponent<Rigidbody2D>();
         _boxCollider = GetComponent<BoxCollider2D>();
         _playerAnim = GetComponentInChildren<Animator>();
-        Health = 4;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Manager.Instance.pause)
+        if(isDead){
             return;
-
-        if(isDead)
-            return;
+        }
 
         Movement();
     }
@@ -83,5 +79,15 @@ public class Player : Singleton<Player>
 
     public void UpdateSpeed(int value){
         _speed += value;
+    }
+
+    public void Die(){
+        if(!_playerAnim.GetCurrentAnimatorStateInfo(0).IsName("Die")){
+            Debug.Log("Set trigger die");
+            isMoving = false;
+            _playerAnim.SetTrigger("Die");
+            isDead = true;
+            _rigid.velocity = new Vector2(0, _rigid.velocity.y);
+        }
     }
 }
