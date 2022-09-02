@@ -1,14 +1,16 @@
 <!---
 Caso o jogo tenha uma logo, disponibilizá-la no README
 --->
-![Running Up that City](Images/main_menu_0.png)
+<p align="center">
+  <img src="Images/main_menu_0.png" alt="drawing" style="width:500px;"/>
+</p>
 
 ## 📃 Sobre o jogo
 <!---
 Aqui faça uma descrição breve para os jogadores sobre o seu jogo! Qual o gênero? É multijogador? etc...
 --->
 
-O jogo **Running Up that City** é um jogo single player do gênero plataforma. Você controla o super astro do rock que encontra-se em uma situação adversa e se vê obrigado a fugir de uma de suas fãs malucas enquanto supera os obstaculos da cidade.
+**Running Up that City** é um jogo single player do gênero plataforma. Você controla o super astro do rock que encontra-se em uma situação adversa e se vê obrigado a fugir de uma de suas fãs malucas enquanto supera os obstaculos da cidade.
 
 ### Tutorial
 
