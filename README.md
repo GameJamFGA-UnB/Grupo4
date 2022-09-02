@@ -12,6 +12,8 @@ Aqui faça uma descrição breve para os jogadores sobre o seu jogo! Qual o gên
 
 **Running Up that City** é um jogo single player do gênero plataforma. Você controla o super astro do rock que encontra-se em uma situação adversa e se vê obrigado a fugir de uma de suas fãs malucas enquanto supera os obstaculos da cidade.
 
+[Clique aqui para jogar](https://amosribeiroc.itch.io/runningupthatcity)
+
 ### Tutorial
 
 ![Tutorial](Images/tutorial.gif)
@@ -29,5 +31,5 @@ Aqui sugere-se que sejam colocados ao menos os nomes de cada desenvolvedor envol
 
 - [Amós Ribeiro](https://github.com/amosribeiroc)
 - [Arthur Taylor](https://github.com/Eruel6)
-- [Víctor Moreira](https://github.com/aqela-batata-alt)
 - [Iuri Severo](https://github.com/iurisevero)
+- [Víctor Moreira](https://github.com/aqela-batata-alt)
