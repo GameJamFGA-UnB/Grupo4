@@ -19,7 +19,7 @@ public class Manager : Singleton<Manager>
         state = 0;
         clipLength = AudioManager.Instance.mapSounds["Queen"].clip.length;
         progress.minimum = 0;
-        progress.maximum = (int) (clipLength - 20);
+        progress.maximum = (int) (clipLength - 35);
         progress.current = 0;
         Debug.Log("Clip lenght: " + clipLength);
         initialPlayerPos = Player.Instance.transform.position;
@@ -29,7 +29,7 @@ public class Manager : Singleton<Manager>
     // Update is called once per frame
     void Update()
     {
-        if(!win && AudioManager.Instance.mapSounds["Queen"].source.time >= (clipLength - 20)){
+        if(!win && AudioManager.Instance.mapSounds["Queen"].source.time >= (clipLength - 35)){
             Player.Instance.Win();
             Win();
         }
