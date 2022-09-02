@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Player : Singleton<Player>
 {
-    private Rigidbody2D _rigid;
-    private BoxCollider2D _boxCollider;
+    public Rigidbody2D _rigid;
+    public BoxCollider2D _boxCollider;
     [SerializeField]
-    private float _jumpForce = 50f;
-    private bool _resetJump = false;
-    private bool _grounded = false;
+    public float _jumpForce = 50f;
+    public bool _resetJump = false;
+    public bool _grounded = false;
     [SerializeField]
-    private float _speed = 15f;
-    private bool isDead = false;
-    private bool isWinner = false;
-    public Animator _playerAnim { get; private set; }
-    public bool isMoving { get; private set;}
+    public float _speed = 15f;
+    public bool isDead = false;
+    public bool isWinner = false;
+    public Animator _playerAnim;
+    public bool isMoving;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,7 @@ public class Player : Singleton<Player>
     // Update is called once per frame
     void Update()
     {
-        if(!Manager.Instance.started)
+        if(Manager.Instance.state != 1)
             return;
 
         if(isDead || isWinner)
@@ -95,12 +95,14 @@ public class Player : Singleton<Player>
             isDead = true;
             _rigid.velocity = new Vector2(0, _rigid.velocity.y);
         }
+        Manager.Instance.Lose();
     }
 
     public void Win(){
         Debug.Log("Win");
         isWinner = true;
         isMoving = false;
+        _playerAnim.SetBool("Walking", isMoving);
         _rigid.velocity = new Vector2(0, _rigid.velocity.y);
     }
 }

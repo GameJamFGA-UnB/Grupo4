@@ -8,24 +8,29 @@ public class Manager : Singleton<Manager>
     bool win = false;
     float clipLength;
     public ProgressBar progress;
-    public bool started;
+    public MenuManager menuManager;
+    public EndManager endManager;
+    public int state;
+    public Vector3 initialPlayerPos;
+    public Vector3 initialFanPos;
     
     void Start()
     {
-        started = false;
+        state = 0;
         clipLength = AudioManager.Instance.mapSounds["Queen"].clip.length;
         progress.minimum = 0;
-        progress.maximum = (int) (clipLength - (clipLength * 0.10));
+        progress.maximum = (int) (clipLength - 20);
         progress.current = 0;
-        Debug.Log(clipLength);
+        Debug.Log("Clip lenght: " + clipLength);
+        initialPlayerPos = Player.Instance.transform.position;
+        initialFanPos = Fan.Instance.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!win && AudioManager.Instance.mapSounds["Queen"].source.time >= (clipLength - (clipLength*0.10))){
+        if(!win && AudioManager.Instance.mapSounds["Queen"].source.time >= 5/* (clipLength - 20)*/){
             Player.Instance.Win();
-            win = true;
             Win();
         }
 
@@ -34,7 +39,9 @@ public class Manager : Singleton<Manager>
         
         if(!win && Player.Instance.isMoving){
             if(playerWasMoving == false){
-                AudioManager.Instance.Play("Queen");
+                if(AudioManager.Instance.mapSounds["Queen"].source.isPlaying)
+                    AudioManager.Instance.UnPause("Queen");
+                else AudioManager.Instance.Play("Queen");
                 playerWasMoving = true;
             }
         } else if(!win && !Player.Instance.isMoving) {
@@ -51,11 +58,32 @@ public class Manager : Singleton<Manager>
     }
 
     public void Win(){
-        AudioManager.Instance.Play("Queen");
+        if(AudioManager.Instance.mapSounds["Queen"].source.isPlaying)
+            AudioManager.Instance.UnPause("Queen");
+        else AudioManager.Instance.Play("Queen");
+        win = true;
+        endManager.Show(win);
+        state++;
         Debug.Log("Win!");
     }
 
     public void Lose(){
+        win = false;
+        endManager.Show(win);
+        state++;
         Debug.Log("Lose!");
+    }
+
+    public void Restart(){
+        AudioManager.Instance.Stop("Queen");
+        Player player = Player.Instance;
+        player._rigid.velocity = Vector2.zero;
+        player.transform.position = initialPlayerPos;
+        player.isMoving = false;
+        player.isDead = false;
+        player.isWinner = false;
+        player._playerAnim.SetTrigger("Idle");
+        Fan.Instance.transform.position = initialFanPos;
+        state = 1;
     }
 }

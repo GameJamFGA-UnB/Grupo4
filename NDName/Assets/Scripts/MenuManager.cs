@@ -21,12 +21,13 @@ public class MenuManager : MonoBehaviour
         selection[1] = quitOut;
         selection[0].gameObject.SetActive(true);
         selection[1].gameObject.SetActive(false);
+        Show();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!Manager.Instance.started){
+        if(Manager.Instance.state == 0){
             if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)){
                 selection[selectionIdx].gameObject.SetActive(false);
                 selectionIdx = (selectionIdx - 1 < 0? 1 : 0);
@@ -37,22 +38,30 @@ public class MenuManager : MonoBehaviour
                 selectionIdx = (selectionIdx + 1 > 1? 0 : 1);
                 selection[selectionIdx].gameObject.SetActive(true);
             }
-            if(Input.GetKey(KeyCode.Return)){
+            if(Input.GetKeyDown(KeyCode.Return)){
                 if(selectionIdx == 0){
                     Debug.Log("Start");
-                    TogglePos(HideKey);
+                    Manager.Instance.state++;
                 }
                 else{
                     Debug.Log("Quit");
-                    TogglePos(HideKey);
                 }
+                Hide();
             }
         }   
     }
 
     void TogglePos(string pos){
         Tweener t = panel.SetPosition(pos, true);
-        t.duration = 2f;
+        t.duration = 1f;
         t.equation = EasingEquations.EaseOutQuad;
+    }
+
+    public void Show(){
+        TogglePos(ShowKey);
+    }
+
+    public void Hide(){
+        TogglePos(HideKey);
     }
 }
