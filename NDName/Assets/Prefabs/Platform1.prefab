@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3779889}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: endPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7383120613059242565}
   - component: {fileID: 7383120613059242564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pisos_3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7383120613732173215}
   - component: {fileID: 7383120613732173214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pisos_5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7383120613889376738}
   - component: {fileID: 7383120613889376741}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pisos_4 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7383120614206579697}
   - component: {fileID: 7383120614206579694}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Platform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -334,7 +334,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.0958595, y: -1.3429205}
+  m_Offset: {x: 3.0958595, y: -1.3774445}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -345,7 +345,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.8606787, y: 0.7523689}
+  m_Size: {x: 3.8606787, y: 0.683321}
   m_EdgeRadius: 0
 --- !u!1 &7383120614366702591
 GameObject:
@@ -357,7 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7383120614366702590}
   - component: {fileID: 7383120614366702529}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pisos_4 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7383120614579319566}
   - component: {fileID: 7383120614579319569}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pisos_4 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
