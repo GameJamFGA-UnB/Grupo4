@@ -27,9 +27,6 @@ Aqui recomenda-se que sejam colocados os ícones da game engine e das linguagens
 Aqui sugere-se que sejam colocados ao menos os nomes de cada desenvolvedor envolvido na criação do seu jogo
 --->
 
-- [Matheus Pimentel Leal](https://github.com/Matheuspleal)
-- [Liverson Paulo](https://github.com/liversonp)
-
 - [Amós Ribeiro](https://github.com/amosribeiroc)
 - [Arthur Taylor](https://github.com/Eruel6)
 - [Víctor Moreira](https://github.com/aqela-batata-alt)
