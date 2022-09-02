@@ -1,14 +1,18 @@
 <!---
 Caso o jogo tenha uma logo, disponibilizá-la no README
 --->
-![Logo do game (caso tenha uma)](http://3rd-strike.com/wp-content/uploads/2015/03/OriLogo-black-png.png)
+![Running Up that City](Images/main_menu_0.png)
 
 ## 📃 Sobre o jogo
 <!---
 Aqui faça uma descrição breve para os jogadores sobre o seu jogo! Qual o gênero? É multijogador? etc...
 --->
 
-Descrição breve sobre o jogo
+O jogo **Running Up that City** é um jogo single player do gênero plataforma. Você controla o super astro do rock que encontra-se em uma situação adversa e se vê obrigado a fugir de uma de suas fãs malucas enquanto supera os obstaculos da cidade.
+
+### Tutorial
+
+![Tutorial](Images/tutorial.gif)
 
 ## 🎮 Engine & linguagens
 <!---
@@ -23,3 +27,8 @@ Aqui sugere-se que sejam colocados ao menos os nomes de cada desenvolvedor envol
 
 - [Matheus Pimentel Leal](https://github.com/Matheuspleal)
 - [Liverson Paulo](https://github.com/liversonp)
+
+- [Amós Ribeiro](https://github.com/amosribeiroc)
+- [Arthur Taylor](https://github.com/Eruel6)
+- [Víctor Moreira](https://github.com/aqela-batata-alt)
+- [Iuri Severo](https://github.com/iurisevero)
