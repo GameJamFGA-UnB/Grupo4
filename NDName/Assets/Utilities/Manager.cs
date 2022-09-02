@@ -29,7 +29,7 @@ public class Manager : Singleton<Manager>
     // Update is called once per frame
     void Update()
     {
-        if(!win && AudioManager.Instance.mapSounds["Queen"].source.time >= 5/* (clipLength - 20)*/){
+        if(!win && AudioManager.Instance.mapSounds["Queen"].source.time >= (clipLength - 20)){
             Player.Instance.Win();
             Win();
         }

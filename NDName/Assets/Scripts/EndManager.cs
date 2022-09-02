@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class EndManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class EndManager : MonoBehaviour
     public GameObject bgWin;
     public GameObject bgLose;
     public Text playAgain;
+    public VideoPlayer videoPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class EndManager : MonoBehaviour
     {
         if(Manager.Instance.state == 2){
             if(win){
+                if(!videoPlayer.isPlaying) videoPlayer.Play();
                 Debug.Log("Win");
             }else{
                 timer = timer + Time.deltaTime;

@@ -45,6 +45,11 @@ public class MenuManager : MonoBehaviour
                 }
                 else{
                     Debug.Log("Quit");
+                    #if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false;
+                    #else
+                    Application.Quit();
+                    #endif
                 }
                 Hide();
             }
