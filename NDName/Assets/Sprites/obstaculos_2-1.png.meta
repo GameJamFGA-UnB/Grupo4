@@ -112,6 +112,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -399,8 +411,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      obstaculos_2-1_9: -2050630603
       obstaculos_2-1_8: 975816754
+      obstaculos_2-1_3: -1913402297
       obstaculos_2-1_0: 411258855
       obstaculos_2-1_2: 509489491
       obstaculos_2-1_1: 2022561886
@@ -410,8 +422,8 @@ TextureImporter:
       obstaculos_2-1_10: 834131116
       obstaculos_2-1_6: -1845098419
       obstaculos_2-1_4: -1786389710
-      obstaculos_2-1_3: -1913402297
       obstaculos_2-1_5: 88835316
+      obstaculos_2-1_9: -2050630603
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

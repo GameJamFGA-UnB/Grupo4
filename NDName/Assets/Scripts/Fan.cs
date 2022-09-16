@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fan : Singleton<Fan>
 {
     private Rigidbody2D _rigid;
-    private float _speed = 10f;
+    private float _speed = 9.8f;
     private Animator _fanAnim;
     public Collider2D _collider { get; private set; }
 
