@@ -10,6 +10,7 @@ public class SlowObstacle : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player"){
+            Debug.Log("TriggerEnter on" + this.name);
             Player.Instance.UpdateSpeed(-weight);
             Player.Instance._playerAnim.SetTrigger("Stumble");
         }

@@ -7,11 +7,11 @@ public class Player : Singleton<Player>
     public Rigidbody2D _rigid;
     public BoxCollider2D _boxCollider;
     [SerializeField]
-    public float _jumpForce = 50f;
+    public float _jumpForce = 15f;
     public bool _resetJump = false;
     public bool _grounded = false;
     [SerializeField]
-    public float _speed = 15f;
+    public float _speed = 10f;
     public bool isDead = false;
     public bool isWinner = false;
     public Animator _playerAnim;
