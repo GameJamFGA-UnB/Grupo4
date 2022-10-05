@@ -4,16 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
-public class EndManager : MonoBehaviour
+public class TutorialManager : MonoBehaviour
 {
     const string ShowKey = "Show";
     const string HideKey = "Hide";
-    private bool win;
     public Panel panel;
     public float timer;
-    public GameObject bgWin;
-    public GameObject bgLose;
-    public Text playAgain;
+    public Text continueText;
     public VideoPlayer videoPlayer;
 
     // Start is called before the first frame update
@@ -25,24 +22,24 @@ public class EndManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Manager.Instance.state == 3){
-            if(win){
-                if(!videoPlayer.isPlaying) videoPlayer.Play();
-                Debug.Log("Win");
-            }else{
+        if(Manager.Instance.state == 1 && !videoPlayer.isPlaying)
+            videoPlayer.Play();
+        else if(Manager.Instance.state != 1 && videoPlayer.isPlaying)
+            videoPlayer.Stop();
+
+        if(Manager.Instance.state == 1){
                 timer = timer + Time.deltaTime;
                 if(timer >= 0.5){
-                        playAgain.enabled = true;
+                    continueText.enabled = true;
                 }
                 if(timer >= 1){
-                        playAgain.enabled = false;
-                        timer = 0;
+                    continueText.enabled = false;
+                    timer = 0;
                 }
                 if(Input.GetKeyDown(KeyCode.Return)){
-                    Manager.Instance.Restart();
+                    Manager.Instance.state++;
                     Hide();
                 }
-            }
         }
     }
 
@@ -52,10 +49,7 @@ public class EndManager : MonoBehaviour
         t.equation = EasingEquations.EaseOutQuad;
     }
 
-    public void Show(bool _win){
-        win = _win;
-        bgWin.SetActive(win);
-        bgLose.SetActive(!win);
+    public void Show(){
         TogglePos(ShowKey);
     }
 

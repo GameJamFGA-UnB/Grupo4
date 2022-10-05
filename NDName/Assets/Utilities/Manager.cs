@@ -9,6 +9,7 @@ public class Manager : Singleton<Manager>
     float clipLength;
     public ProgressBar progress;
     public MenuManager menuManager;
+    public TutorialManager tutorialManager;
     public EndManager endManager;
     public int state;
     public Vector3 initialPlayerPos;
@@ -84,6 +85,22 @@ public class Manager : Singleton<Manager>
         player.isWinner = false;
         player._playerAnim.SetTrigger("Idle");
         Fan.Instance.transform.position = initialFanPos;
-        state = 1;
+        state = 2;
+    }
+
+    public void Reset(){
+        AudioManager.Instance.Stop("Queen");
+        Player player = Player.Instance;
+        player._rigid.velocity = Vector2.zero;
+        player.transform.position = initialPlayerPos;
+        player.isMoving = false;
+        player.isDead = false;
+        player.isWinner = false;
+        player._playerAnim.SetTrigger("Idle");
+        Fan.Instance.transform.position = initialFanPos;
+        menuManager.Show();
+        tutorialManager.Hide();
+        endManager.Hide();
+        state = 0;
     }
 }

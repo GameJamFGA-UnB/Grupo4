@@ -42,6 +42,7 @@ public class MenuManager : MonoBehaviour
                 if(selectionIdx == 0){
                     Debug.Log("Start");
                     Manager.Instance.state++;
+                    Manager.Instance.tutorialManager.Show();
                 }
                 else{
                     Debug.Log("Quit");

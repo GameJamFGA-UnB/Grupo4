@@ -9,6 +9,9 @@ public class SlowObstacle : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if(Manager.Instance.state != 2)
+            return;
+
         if(other.tag == "Player"){
             Debug.Log("TriggerEnter on" + this.name);
             Player.Instance.UpdateSpeed(-weight);
@@ -18,6 +21,9 @@ public class SlowObstacle : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
+        if(Manager.Instance.state != 2)
+            return;
+
         if(other.tag == "Player"){
             Player.Instance.UpdateSpeed(weight);
         }

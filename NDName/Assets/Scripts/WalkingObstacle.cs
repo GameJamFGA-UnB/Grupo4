@@ -21,6 +21,11 @@ public class WalkingObstacle : MonoBehaviour
 
     public virtual void Update()
     {
+        if(Manager.Instance.state != 2){
+            anim.SetBool("Stop", true);
+            return;
+        }
+        anim.SetBool("Stop", false);
         if(anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
             return;
         
