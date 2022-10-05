@@ -15,11 +15,14 @@ public class EndManager : MonoBehaviour
     public GameObject bgLose;
     public Text playAgain;
     public VideoPlayer videoPlayer;
+    bool videoPlayed = false;
+    long frames;
 
     // Start is called before the first frame update
     void Start()
     {
         Hide();
+        frames = (long) videoPlayer.frameCount;
     }
 
     // Update is called once per frame
@@ -27,7 +30,15 @@ public class EndManager : MonoBehaviour
     {
         if(Manager.Instance.state == 3){
             if(win){
-                if(!videoPlayer.isPlaying) videoPlayer.Play();
+                if(!videoPlayed){
+                    videoPlayer.Play();
+                    videoPlayed = true;
+                }
+                if(videoPlayed && videoPlayer.frame > (frames - 5)){
+                    videoPlayer.Stop();
+                    videoPlayed = false;
+                    Manager.Instance.Reset();
+                }
                 Debug.Log("Win");
             }else{
                 timer = timer + Time.deltaTime;

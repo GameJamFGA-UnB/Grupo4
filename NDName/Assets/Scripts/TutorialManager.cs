@@ -55,5 +55,6 @@ public class TutorialManager : MonoBehaviour
 
     public void Hide(){
         TogglePos(HideKey);
+        AudioManager.Instance.Stop("Intro");
     }
 }

@@ -98,4 +98,9 @@ public class AudioManager : Singleton<AudioManager>
         s.source.Stop();
     }
 
+    public void PlayBreak()
+    {
+        int rand = UnityEngine.Random.Range(1, 5);
+        Play("Break" + rand.ToString());
+    }
 }

@@ -32,11 +32,13 @@ public class MenuManager : MonoBehaviour
                 selection[selectionIdx].gameObject.SetActive(false);
                 selectionIdx = (selectionIdx - 1 < 0? 1 : 0);
                 selection[selectionIdx].gameObject.SetActive(true);
+                AudioManager.Instance.Play("Move");
             }
             if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)){
                 selection[selectionIdx].gameObject.SetActive(false);
                 selectionIdx = (selectionIdx + 1 > 1? 0 : 1);
                 selection[selectionIdx].gameObject.SetActive(true);
+                AudioManager.Instance.Play("Move");
             }
             if(Input.GetKeyDown(KeyCode.Return)){
                 if(selectionIdx == 0){
@@ -52,6 +54,7 @@ public class MenuManager : MonoBehaviour
                     Application.Quit();
                     #endif
                 }
+                AudioManager.Instance.Play("Start");
                 Hide();
             }
         }   
@@ -65,6 +68,7 @@ public class MenuManager : MonoBehaviour
 
     public void Show(){
         TogglePos(ShowKey);
+        AudioManager.Instance.Play("Intro");
     }
 
     public void Hide(){

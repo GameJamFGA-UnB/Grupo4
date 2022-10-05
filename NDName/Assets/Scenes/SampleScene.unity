@@ -2416,9 +2416,63 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: Break
+  - name: Break1
     clip: {fileID: 8300000, guid: e6e684dcbc295324c95298b996968d4f, type: 3}
     volume: 0.3
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Break2
+    clip: {fileID: 8300000, guid: d19aac05ade0af44f83b66e603b5ecea, type: 3}
+    volume: 0.3
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Break3
+    clip: {fileID: 8300000, guid: 795c1579f9cbb944083b2856555e92ab, type: 3}
+    volume: 0.3
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Break4
+    clip: {fileID: 8300000, guid: 04e39ad4fe9ca0040bd25e99b766e796, type: 3}
+    volume: 0.3
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Intro
+    clip: {fileID: 8300000, guid: 6ecd88953b63cde4e86cc6e133d1841a, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Move
+    clip: {fileID: 8300000, guid: 6bf32bfea76b709438912fe7fcc6ef0c, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Start
+    clip: {fileID: 8300000, guid: f35473971a2be744583a931f31d164d0, type: 3}
+    volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0

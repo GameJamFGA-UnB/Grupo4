@@ -48,7 +48,7 @@ public class Manager : Singleton<Manager>
         } else if(!win && !Player.Instance.isMoving) {
             AudioManager.Instance.Pause("Queen");
             if(playerWasMoving){
-                AudioManager.Instance.Play("Break");
+                AudioManager.Instance.PlayBreak();
                 playerWasMoving = false;
             }
         }
