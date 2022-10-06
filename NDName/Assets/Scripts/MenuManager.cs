@@ -43,8 +43,7 @@ public class MenuManager : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Return)){
                 if(selectionIdx == 0){
                     Debug.Log("Start");
-                    Manager.Instance.state++;
-                    Manager.Instance.tutorialManager.Show();
+                    StartCoroutine(Teste());
                 }
                 else{
                     Debug.Log("Quit");
@@ -58,6 +57,12 @@ public class MenuManager : MonoBehaviour
                 Hide();
             }
         }   
+    }
+
+    IEnumerator Teste(){
+        yield return new WaitForEndOfFrame();
+        Manager.Instance.state++;
+        Manager.Instance.tutorialManager.Show();
     }
 
     void TogglePos(string pos){

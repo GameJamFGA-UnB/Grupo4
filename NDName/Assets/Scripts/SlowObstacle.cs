@@ -26,6 +26,7 @@ public class SlowObstacle : MonoBehaviour
 
         if(other.tag == "Player"){
             Player.Instance.UpdateSpeed(weight);
+            Player.Instance._playerAnim.ResetTrigger("Stumble");
         }
     }
 }

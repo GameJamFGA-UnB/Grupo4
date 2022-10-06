@@ -86,6 +86,7 @@ public class Manager : Singleton<Manager>
         player._playerAnim.SetTrigger("Idle");
         Fan.Instance.transform.position = initialFanPos;
         state = 2;
+        win = false;
     }
 
     public void Reset(){
@@ -102,5 +103,6 @@ public class Manager : Singleton<Manager>
         tutorialManager.Hide();
         endManager.Hide();
         state = 0;
+        win = false;
     }
 }

@@ -42,10 +42,19 @@ public class Player : Singleton<Player>
 
     void Movement()
     {
-        isMoving =  Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
+        isMoving =  (
+            Input.GetKey(KeyCode.RightArrow) || 
+            Input.GetKey(KeyCode.D) || 
+            Input.GetKey(KeyCode.JoystickButton11)
+        );
         isGrounded();
 
-        bool jump = Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow);
+        bool jump = (
+            Input.GetKeyDown(KeyCode.Space) || 
+            Input.GetKeyDown(KeyCode.W) || 
+            Input.GetKeyDown(KeyCode.UpArrow) ||
+            Input.GetKeyDown(KeyCode.JoystickButton0)
+        );
         if (jump && _grounded){
             Debug.Log("Jumping");
             _rigid.velocity = new Vector2(_rigid.velocity.x, _jumpForce);

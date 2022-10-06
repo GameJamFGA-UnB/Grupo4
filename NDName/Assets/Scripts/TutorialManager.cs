@@ -22,6 +22,9 @@ public class TutorialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Manager.Instance.state != 1)
+            return;
+
         if(Manager.Instance.state == 1 && !videoPlayer.isPlaying)
             videoPlayer.Play();
         else if(Manager.Instance.state != 1 && videoPlayer.isPlaying)
@@ -37,7 +40,9 @@ public class TutorialManager : MonoBehaviour
                     timer = 0;
                 }
                 if(Input.GetKeyDown(KeyCode.Return)){
+                    Debug.Log("Get key down");
                     Manager.Instance.state++;
+                    AudioManager.Instance.Stop("Intro");
                     Hide();
                 }
         }
@@ -50,11 +55,11 @@ public class TutorialManager : MonoBehaviour
     }
 
     public void Show(){
+        Debug.Log("Tutorial Manager Show");
         TogglePos(ShowKey);
     }
 
     public void Hide(){
         TogglePos(HideKey);
-        AudioManager.Instance.Stop("Intro");
     }
 }
